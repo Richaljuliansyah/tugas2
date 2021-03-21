@@ -1,0 +1,50 @@
+<?php
+	// jika form sudah disubmit
+	if (isset($_REQUEST["submit"])) {
+		// mengambil data yang diinput
+		$nama = $_REQUEST["nama"]; // php, python, js
+		$nim = $_REQUEST["nim"];
+		$nilai = $_REQUEST["nilai"];
+		$grade = "";
+
+		// kondisi pertama
+		if ($nilai >= 90) {
+			$grade = "A";
+		}
+		else if ($nilai >= 80) {
+			$grade = "B";
+		}
+		else if ($nilai >= 70) {
+			$grade = "C";
+		}
+		else {
+			$grade = "D";
+		}
+	}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form action="form.php" method="POST">
+		Nama: <input type="text" name="nama">
+		Nim: <input type="number" name="nim">
+		Nilai: <input type="number" name="nilai">
+		<input type="submit" name="submit">
+	</form>
+
+	<!-- Menampilkan Data dalam bentuk list -->
+	<ul>
+		<li><?php echo $nama ?? "" ?></li>
+		<li><?php echo $nim ?? "" ?></li>
+		<li><?php echo $nilai ?? "" ?></li>
+		<li><?php echo $grade ?? "" ?></li>
+	</ul>
+</body>
+</html>
